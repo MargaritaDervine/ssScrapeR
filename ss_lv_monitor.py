@@ -149,16 +149,16 @@ class SSLVMonitor:
             text_content = f"{listing.get('title', '')} {listing.get('description', '')}".lower()
             
             # Check for required keywords
-              if SEARCH_CRITERIA['keywords_include']:
-                  has_required = any(keyword.lower() in text_content for keyword in SEARCH_CRITERIA['keywords_include'])
-                  if not has_required:
+            if SEARCH_CRITERIA['keywords_include']:
+                has_required = any(keyword.lower() in text_content for keyword in SEARCH_CRITERIA['keywords_include'])
+                if not has_required:
                       return False
 
             # Check for excluded keywords
-              if SEARCH_CRITERIA['keywords_exclude']:
-                  has_excluded = any(keyword.lower() in text_content for keyword in SEARCH_CRITERIA['keywords_exclude'])
-                  if has_excluded:
-                      return False
+            if SEARCH_CRITERIA['keywords_exclude']:
+                 has_excluded = any(keyword.lower() in text_content for keyword in SEARCH_CRITERIA['keywords_exclude'])
+                 if has_excluded:
+                     return False
 
             return True
 
