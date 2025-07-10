@@ -9,6 +9,8 @@ on:
 jobs:
   monitor:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allow workflow to commit and push changes
     
     steps:
     - name: Checkout repository
