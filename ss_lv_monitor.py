@@ -43,8 +43,8 @@ EMAIL_TO = os.getenv("EMAIL_TO", "recipient@gmail.com")
 SEARCH_CRITERIA = {
     "max_price": 270000,  # Maximum price in EUR
     "min_price": 27000,   # Minimum price in EUR
-    #  "keywords_include": ["māja", "zeme", "privātmāja", "dzīvoklis"],
-    #  "keywords_exclude": ["bojāts", "avārijas", "slēgts"],
+    "keywords_include": [],
+    "keywords_exclude": [],
     "min_area": 50,       # Minimum area in m²
 }
 
@@ -149,16 +149,16 @@ class SSLVMonitor:
             text_content = f"{listing.get('title', '')} {listing.get('description', '')}".lower()
             
             # Check for required keywords
-             # if SEARCH_CRITERIA['keywords_include']:
-             #     has_required = any(keyword.lower() in text_content for keyword in SEARCH_CRITERIA['keywords_include'])
-              #    if not has_required:
-                #      return False
+              if SEARCH_CRITERIA['keywords_include']:
+                  has_required = any(keyword.lower() in text_content for keyword in SEARCH_CRITERIA['keywords_include'])
+                  if not has_required:
+                      return False
 
             # Check for excluded keywords
-             # if SEARCH_CRITERIA['keywords_exclude']:
-                 # has_excluded = any(keyword.lower() in text_content for keyword in SEARCH_CRITERIA['keywords_exclude'])
-                 # if has_excluded:
-                     # return False
+              if SEARCH_CRITERIA['keywords_exclude']:
+                  has_excluded = any(keyword.lower() in text_content for keyword in SEARCH_CRITERIA['keywords_exclude'])
+                  if has_excluded:
+                      return False
 
             return True
 
