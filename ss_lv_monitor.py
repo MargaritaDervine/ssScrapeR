@@ -27,7 +27,9 @@ import re
 # URLs to monitor
 URLS_TO_MONITOR = [
     "https://www.ss.lv/lv/real-estate/homes-summer-residences/riga-region/olaines-pag/filter/",
-    "https://www.ss.lv/lv/real-estate/plots-and-lands/riga-region/olaines-pag/filter/"
+    "https://www.ss.lv/lv/real-estate/plots-and-lands/riga-region/olaines-pag/filter/",
+    "https://www.ss.lv/lv/real-estate/homes-summer-residences/riga-region/marupes-pag/",
+    "https://www.ss.lv/lv/real-estate/homes-summer-residences/riga-region/olaine/"
 ]
 
 # Email configuration
@@ -40,7 +42,7 @@ EMAIL_TO = os.getenv("EMAIL_TO", "recipient@gmail.com")
 # Search criteria - modify these to match your requirements
 SEARCH_CRITERIA = {
     "max_price": 270000,  # Maximum price in EUR
-    "min_price": 25000,   # Minimum price in EUR
+    "min_price": 27000,   # Minimum price in EUR
     #  "keywords_include": ["māja", "zeme", "privātmāja", "dzīvoklis"],
     #  "keywords_exclude": ["bojāts", "avārijas", "slēgts"],
     "min_area": 50,       # Minimum area in m²
