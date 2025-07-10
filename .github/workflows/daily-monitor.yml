@@ -3,7 +3,7 @@ name: Daily SS.LV Real Estate Monitor
 on:
   schedule:
     # Run daily at 8:00 AM UTC (adjust time as needed)
-    - cron: '00 12 * * *'
+    - cron: '0 8 * * *'
   workflow_dispatch: # Allows manual triggering
 
 jobs:
@@ -31,9 +31,10 @@ jobs:
         EMAIL_TO: ${{ secrets.EMAIL_TO }}
       run: python ss_lv_monitor.py
       
-    - name: Upload listings data
-      uses: actions/upload-artifact@v4
-      with:
-        name: listings-data
-        path: listings_data.json
-        retention-days: 30
+    - name: Commit updated listings data
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add listings_data.json
+        git diff --staged --quiet || git commit -m "Update listings data - $(date)"
+        git push
