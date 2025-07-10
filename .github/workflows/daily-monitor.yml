@@ -3,7 +3,7 @@ name: Daily SS.LV Real Estate Monitor
 on:
   schedule:
     # Run daily at 8:00 AM UTC (adjust time as needed)
-    - cron: '40 11 * * *'
+    - cron: '00 12 * * *'
   workflow_dispatch: # Allows manual triggering
 
 jobs:
